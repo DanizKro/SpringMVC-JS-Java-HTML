@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nb">
+
+<head>
+    <meta name="Author" content="Bjarte Wang-Kileng">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="#">
+
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <title>Javascript innbakt i webdokument</title>
+</head>
+
+<body>
+
+    <div id="root">
+        <h1>Javascript innbakt i webdokument</h1>
+
+        <p><button type="button">Klikk meg</button></p>
+    </div>
+
+    <p>På denne websiden er JavaScript-kode lagt inn i HTML-koden, inne i en <strong>script</strong> tagg. Koden under
+        er lagt inn i dokumentet helt på slutten av body delen:</p>
+
+    <pre class="demo">&lt;script&gt;
+"use strict";
+
+// JavaScript-kode
+
+&lt;/script&gt;</pre>
+
+    <p class="liste">
+        Et klikk på knappen vil kalle en JavaScript-metode i <var>Demo</var>.
+        Den er lagt inn i dokumentet ved følgende HTML:</p>
+    <pre class="demo">&lt;p&gt;&lt;button type="button" id="demo"&gt;Klikk meg&lt;/button&gt;&lt;/p&gt;</pre>
+
+    <script>
+        "use strict";
+
+        class Demo {
+            /**
+             * Initialiserer Demo
+             * @param {String} rootElement - HTML container-elementet (DIV) med HTML button
+             *                 som aktiverer demonstrasjonene.
+             */
+            constructor(rootElement) {
+                this.rootElement = rootElement;
+                this.setHeader = this.setHeader.bind(this);
+
+                const demoButton = rootElement.querySelector("button[type='button']");
+                demoButton.addEventListener('click', this.setHeader);
+            }
+
+            /**
+             * Metode som setter ny header
+             * @private
+             * @listens Button:click
+             */
+            setHeader() {
+                const h1Ref = this.rootElement.getElementsByTagName("h1")[0];
+                const header = window.prompt("New header:", h1Ref.textContent.trim());
+                if (header != null) {
+                    h1Ref.textContent = header;
+                }
+            }
+        }
+
+        const rootElement = document.getElementById('root');
+        new Demo(rootElement);
+    </script>
+</body>
+
+</html>

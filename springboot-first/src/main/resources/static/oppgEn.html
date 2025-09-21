@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Author" content="Ditt navn" />
+    <link rel="shortcut icon" href="#" />
+    <script defer src="tallsystem.js"></script>
+    <title>Tallsystem</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Fahrenheit til Celsius</h1>
+    <fieldset id="root">
+      <legend>Konverter temperatur</legend>
+      <input type="number" id="fahrenheit" placeholder="Temperatur i Fahrenheit" />
+      <button type="button" id="convertBtn">Konverter</button>
+      <p class="hidden" id="result">
+        <span id="fValue"></span>°F er <span id="cValue"></span>°C
+      </p>
+    </fieldset>
+
+    <script>
+      var fahrenheitInput = document.getElementById('fahrenheit');
+      var convertBtn = document.getElementById('convertBtn');
+      var resultP = document.getElementById('result');
+      var fValueSpan = document.getElementById('fValue');
+      var cValueSpan = document.getElementById('cValue');
+
+      convertBtn.addEventListener('click', () => {
+        var f = parseFloat(fahrenheitInput.value);
+        if (isNaN(f)) {
+          alert("Vennligst skriv inn et gyldig tall!");
+          return;
+        }
+        var c = (f - 32) * 5 / 9;
+        fValueSpan.textContent = f;
+        cValueSpan.textContent = c.toFixed(2);
+        resultP.classList.remove('hidden');
+      });
+    </script>
+	
+  </body>
+  </html>

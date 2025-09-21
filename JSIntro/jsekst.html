@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta name="Author" content="Bjarte Wang-Kileng" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="#">
+    <title>JavaScript fra filer</title>
+
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <style>
+      .jsdemo_emph {
+          background-color: red;
+      }
+    </style>
+
+
+    <!-- Javascript leses fra fil. -->
+    <script src="js/jsdemo.js" defer></script>
+  </head>
+
+  <body>
+
+    <h1>JavaScript fra filer</h1>
+    
+
+    <p class="liste">Dokumentet demonstrerer at JavaScript-kode kan leses fra filer.
+      Dette dokumentet inneholder i head-delen:</p>
+    <pre class="demo">&lt;script src="jsdemo.js" defer&gt;&lt;/script&gt;</pre>
+
+    <div id="root">
+      <p>
+        <button type="button">Klikk meg</button>
+      </p>
+    </div>
+
+    <p>Javscript legges ofte i slutten av body-delen, eller i head delen hvis vi bruker attributtet <em>defer</em>.</p>
+
+    <p>Når dokumentet er ferdig lastet kalles metoden <var>init()</var> gitt i
+      filen <em>jsdemo.js</em>. Det gjøres ved følgende kode:
+      <pre class="demo">document.addEventListener('DOMContentLoaded',init,true)</pre>
+
+    <p>Knappen <em>Klikk meg</em> er lagt inn i web-dokumentet med følgende kode:</p>
+    <pre class="demo">&lt;p&gt;&lt;button type="button"&gt;Click me&lt;/button&gt;&lt;/p&gt;</pre>
+  </body>
+</html>

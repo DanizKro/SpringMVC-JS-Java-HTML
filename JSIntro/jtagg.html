@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="Bjarte Wang-Kileng">
+    <link rel="shortcut icon" href="#">
+
+    <title>JavaScript på tagg</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <style>
+      .jtagg_emph {
+          background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>JavaScript på tagg</h1>
+
+    <p>Dette dokumentet demonstrerer hvordan JavaScript-kode kan legges på HTML-tagger.</p>
+
+    <p>En <a href="javascript: window.alert('Hei alle sammen')">lenke</a>
+      som kjører Javscriptkode.</p>
+
+    <p>Lenken er lagt inn i dokumentet ved følgende kode:</p>
+    <pre class="demo">&lt;a href="javascript: window.alert('Hei alle sammen')"&gt;lenke&lt;/a&gt;</pre>
+
+    <p onclick="this.classList.toggle('jtagg_emph')">Et klikk på dette <strong>p</strong>-element kjører Javascriptkode.</p>
+
+    <p>Avsnittet, <strong>p</strong>-elementet er lagt inn i dokumentet ved følgende HTML kode:</p>
+    <pre class="demo">&lt;p onclick="this.classList.toggle('jtagg_emph')"&gt;Et klikk på dette &lt;strong&gt;p&lt;/strong&gt;-element kjører Javascriptkode.&lt;/p&gt;</pre>
+
+    <p>Hvis tid skal vi senere lære om metoden <em>addEventListener</em>. Vi bør bruke denne metoden nå vi skal knytte JavaScript-kode til hendelser på HTML-tagger, og ikke bruke attributter som <em>onclick</em>.</p>
+  </body>
+</html>

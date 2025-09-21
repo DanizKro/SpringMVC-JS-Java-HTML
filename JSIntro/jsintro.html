@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nb">
+
+<head>
+    <meta name="Author" content="Bjarte Wang-Kileng">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="#">
+
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <title>JavaScript i web-dokument</title>
+</head>
+
+<body>
+
+    <h1>JavaScript i web-dokument</h1>
+
+    <p>JavaScript er programkode som hentes fra webtjener og utføres
+        på klient av nettleser.
+        Også Java og Visual Basic har blitt benyttet som klientsidespråk, men JavaScript er mye mer benyttet.
+        Visual Basic kunne kun benyttes av Internet Explorer, og Java krever at en plugin må installeres i nettleser.
+    </p>
+
+
+    <p class="liste">Med JavaScript kan vi f.eks:</p>
+    <ul>
+        <li>Forberede data som skal sendes fra form-skjema i nettleser til webtjener:
+            <ul>
+                <li>Sjekke at nødvendige felter er fylt inn,</li>
+                <li>sjekke at data er konsistente.</li>
+            </ul>
+        </li>
+        <li>Kan gi bevegelse og dynamikk på webside:
+            <ul>
+                <li>Flytte/posisjonere tekst,</li>
+                <li>beregne størrelser og posisjoner til web-elementer,</li>
+                <li>skjule/vise tekst avhengig av omstendighetene,</li>
+                <li>forandre utseende, åpne nye vinduer etc.</li>
+            </ul>
+        </li>
+        <li>Kan endre/lage/operer på HTML-strukturer og CSS i web-dokument og CSS-stilark:
+            <ul>
+                <li>Med f.eks. Ajax kan deler av websiden endres/oppdateres med
+                    nye data fra tjener uten at hele websiden må genereres på nytt.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>JavaScript kode kan legges til HTML-dokument ved bruk av taggen <var>script</var>.
+        Taggen puttes vanligvis på slutten av <var>body</var> elemententet.
+        En diskusjon rundt plassering av <var>script</var> tag vil du finne i
+        forelesningsnotatene.</p>
+
+    <p>JavaScript kode kan bakes inn i selve HTML-dokument, men kan også lastes fra egne filer.
+        Med bruk av egne filer for JavaScript kan vi gjenbruke koe i forksjellige HTML-dokumenter. Dette kan også gi
+        raskere tilgang til JavaScript koden
+        hvis nettleser kan lste koden fra cache. Bruk av separate filer lar også nettleser laste JavaScript koden
+        parallelt med lasting og byggin av HTML-dokumentet.</p>
+
+    <h2>JavaScript i egne filer</h2>
+
+    <p>Javscriptkode lastes fra egen fil med følgende kode i et HTML-dokument:</p>
+    <pre class="demo">&lt;script src="URL_eller_sti_til_javascriptfil"&gt;&lt;/script&gt;</pre>
+
+    <p>Attributtet <var>src</var> er URL til filen med JavaScript kode.
+        Referanse til fil med Javacriptkode følger reglene som for
+        <var>href</var> attributtet til elementet <var>a</var>. Dersom filen er plassert på samme tjener som
+        webdokumentet angir vi stien fram enten som en relativ eller absolutt sti. Dersom JavaSript-filen er plassert på
+        en annen webtjener
+        angir vi url-en på normal måte som <var>http(s)://webtjener/sti/javascriptfil</var>.
+        Flere JavaScript filer kan lasttes ved å benytte flere JavaScript tagger.
+    </p>
+
+
+    <p class="liste">Lenken under er til et HTML-dokument som laster JavaScript
+        fra en egen fil:</p>
+    <ul>
+        <li><a href="jsekst.html">JavaScript lest fra filer</a></li>
+    </ul>
+
+    <h2>JavaScript kode innbakt i HTML-dokument</h2>
+
+    <p class="liste">JavaScript kode kan bakes inn i HTML-koden. Koden under
+        demonstrerer hvordan dette kan gjøres for et HTML5 dokument:</p>
+    <pre class="demo">&lt;script&gt;
+// JavaScript kode
+&lt;/script&gt;</pre>
+
+    <p class="liste">Lenken under er til et HTML-dokument med innbakt JavaScript kode:</p>
+    <ul>
+        <li><a href="jsinkl.html">Javascript innbakt i webdokument</a></li>
+    </ul>
+
+    <p>Et HTML-dokument kan ha flere <var>script</var> tagger,
+        og vi kan bruke både innbakt og og lastet fra filer i samme
+        HTML-dokument.</p>
+
+    <h2>JavaScript kode på tagg</h2>
+
+    <p>JavaScript kode kan legges i lenker og direkte på knapper. Koden under demonstrerer dette:</p>
+    <pre class="demo">&lt;!-- JavaScript i lenke --&gt;
+&lt;a href="javascript: void window.alert('Klikk meg')"&gt;En Javscriptlenke&lt;/a&gt;
+
+&lt;!-- JavaScript kode på knapp --&gt;
+&lt;button onclick="window.resizeTo(300,400)"&gt;Endre størrelse&lt;/button&gt;</pre>
+
+    <p class="liste">Lenken under er til et HTML-dokument med JavaScript lagt på tagg via tagg-attributter:</p>
+    <ul>
+        <li><a href="jtagg.html">JavaScript på tagg</a></li>
+    </ul>
+
+    <h2>Nettleser og feilmeldinger fra JavaScript</h2>
+
+    <p class="liste">Når vi skriver JavaScript kode har vi bruk for å se advarsler og feilmeldinger. Listen under viser
+        hvordan vi finner feilmeldinger og advarsler i noen nettlesere:</p>
+    <dl>
+        <dt>Firefox</dt>
+        <dd><em>Verktøy/Nettsideutvikling/Web&nbsp;Console</em>, or <em>Verktøy/Nettsideutvikling/Nettleserkonsoll</em>.
+        </dd>
+        <dt>Chrome</dt>
+        <dd><em>Verktøy/Utviklerverktøy</em>.</dd>
+        <dt>Opera</dt>
+        <dd><em>Verktøy/Avansert/Feilmeldingskonsoll</em>.</dd>
+        <dt>IE</dt>
+        <dd><em>Verktøy/F12-utviklerverktøy</em>.</dd>
+    </dl>
+
+</body>
+
+</html>

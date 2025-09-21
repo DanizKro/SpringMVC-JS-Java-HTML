@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Author" content="Ditt navn" />
+    <link rel="shortcut icon" href="#" />
+    <script defer src="tallsystem.js"></script>
+    <title>Tallsystem</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Fahrenheit til Celsius</h1>
+    <fieldset id="root">
+      <legend>Konverter temperatur</legend>
+      <input type="number" id="temperatur" placeholder="Skriv inn temperatur" />
+	  
+	  <select id="unit">
+		<option value="C">Celsius</option>
+		<option value="F">Fahrenheit</option>
+	  </select>
+	  
+      <button type="button" id="convertBtn">Konverter</button>
+	 
+      <p class="hidden" id="result">
+		<span id="inputValue"></span>°<span id="inputUnit"></span> er <span id="convertedValue"></span>°<span id="convertedUnit"></span>.
+		    </p>
+    </fieldset>
+
+    <script>
+		var tempInput = document.getElementById('temperature');
+		var unitSelect = document.getElementById('unit');
+		var convertBtn = document.getElementById('convertBtn');
+		var resultP = document.getElementById('result');
+		var inputValueSpan = document.getElementById('inputValue');
+		var inputUnitSpan = document.getElementById('inputUnit');
+		var convertedValueSpan = document.getElementById('convertedValue');
+		var convertedUnitSpan = document.getElementById('convertedUnit');
+
+      convertBtn.addEventListener('click', () => {
+        var temp = parseFloat(tempInput.value);
+		var unit = unitSelect.value;
+		
+        if (isNaN(f)) {
+          alert("Vennligst skriv inn et gyldig tall!");
+          return;
+        }
+        
+		let convertedTemp, convertestUnit;
+		if(unit === "C"){
+			//Fra Celsisus til Fahrenheit
+			convertedTemp = (temp * 9 / 5) + 32;
+			convertedUnit = "F";
+		} else {
+			//Fra Fahrenheit til Celsisus
+			convertedTemp = (temp-32) * 5 / 9;
+			converted = "C";
+		}
+		
+		//Viser resultatet
+		inputValueSpan.textContent = temp.toFixed(2);
+		inputUnitSpan.textContent = unit;
+		convertedValueSpan.textContent = convertedTemp.ToFixed(2);
+		convertpedUnitSpan.textContent = convertedUnit;
+		resultP.classList.remove('hidden");
+		
+      });
+    </script>
+	
+  </body>
+  </html>
