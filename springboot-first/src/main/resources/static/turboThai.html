@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Fahrenheit til Celsius</title>
+</head>
+<body>
+	<!--
+    <h1>Celsius til Fahrenheit av @TT</h1>
+    <b>Celsius: </b><input type="text" id="textCelsius"><br>
+    <b>Fahrenheit: </b><input type="text" id="textFahrenheit"><br>
+    <button onclick="convertCelsiusToFahrenheit();">Convert C -> F</button>
+	-->
+	<h1>Velg konvertering</h1>
+	
+	<select id="conversionSelect">
+		<option value="CtoF">Celsius -> Fahrenheit</option>
+		<option value="Ftoc">Fahrenheit -> Celsius</option>
+	</select>
+	
+	<br><br>
+	
+	
+	<h1>Fahrenheit til Celsius av @TT</h1>
+	<b>Fahrenheit: </b><input type="text" id="textFahrenheitInput"><br>
+	<b>Celsius: </b><input type="text" id="textCelsiusOutput"><br>    
+	<button onclick="convertFahrenheitToCelsius();">Convert F -> C</button>
+</body>
+</html>
+
+
+<script>
+	
+/*
+function convertCelsiusToFahrenheit() {
+    var c = document.getElementById("textCelsius").value;
+    var f = (9/5) * parseFloat(c) + 32;
+    document.getElementById("textFahrenheit").value = f;
+}
+*/
+
+function convertFahrenheitToCelsius(){
+	var f = document.getElementById("textFahrenheitInput").value;
+	var c = (f - 32) *5/9;
+	document.getElementById("textCelsiusOutput").value = c;
+	
+	
+}
+</script>
