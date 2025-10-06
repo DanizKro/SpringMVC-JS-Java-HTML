@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator</h1>
+
+    <b>Hvor mange tall vil du regne med?</b>
+    <input type="number" id="antall">
+    <button onclick = "velgAntall()">Velg</button>
+    <br><br>
+
+    <p id= "numberText" class="hidden"> Fyll inn tallene i rutene:</p>
+    <div id="inputContainer">
+        <!-- Her legges inn antall ruter som kommer fra input-->
+    </div>
+
+    <div id="operatorContainer" class="hidden">
+        <button onclick="settOperator('+')">+</button>
+        <button onclick="settOperator('-')">-</button>
+        <button onclick="settOperator('*')">*</button>
+        <button onclick="settOperator('/')">/</button>
+    </div>
+
+    <button id="executeBtn" class="hidden" onclick="execute()">Utfør</button>
+
+    <p id="result" class="hidden">Resultat: <span id="output"></span></p>
+    <script src="Oppg4.js"></script>
+    
+</body>
+</html>
+
