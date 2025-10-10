@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Fahrenheit til Celsius</title>
+    <title>Endrer grader</title>
 </head>
 <body>
-	<h1>Fahrenheit til Celsius</h1>
-	<b>Fahrenheit: </b><input type="text" id="FahrenheitInput"><br>
-	<b>Celsius: </b><input type="text" id="CelsiusOutput"><br>    
-	<button onclick="convertFahrenheitToCelsius();">Convert F -> C</button>
+	<h1>Endrer grader</h1>
+	<label for ="valg">Hva vil du konvertere til?:</label>
+	<select id="valg">
+		<option value="">--Alternativ--</option>
+		<option value="C">Celcius</option>
+		<option value="F">Fahrenheit</option>
+	</select>
+	<br></br>
+	<b>Grader: </b><input type="text" id="Grader"><br>
+	<b>Svar: </b><input type="text" id="Svar"><br>
+	<br></br>
+	<button onclick="converter()">Konverter</button>
 	
-	<script>
-
-	function convertFahrenheitToCelsius(){
-		var f = document.getElementById("FahrenheitInput").value;
-		var c = (f - 32) *5/9;
-		document.getElementById("CelsiusOutput").value = c;
-
-	}
-	</script>
+	<script defer src = "Oppg2.js"></script>
 	
 </body>
 </html>
