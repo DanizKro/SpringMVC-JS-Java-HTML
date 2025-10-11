@@ -43,7 +43,8 @@ public class Konger {
 //		norske.add(new Konge("Oscar II" 		1829	1872	1905
 //		norske.add(new Konge("Haakon VII"		1872	1905	1957
 //		norske.add(new Konge("Olav V"			1903	1957	1991
-//		norske.add(new Konge("Harald V"			1937	1991	2021
+		norske.add(new Konge("Harald V",			1937,	1991,	2025,
+				"https://upload.wikimedia.org/wikipedia/commons/f/fa/King_Harald_V_2021.jpg" ));
 	}
 
 }
