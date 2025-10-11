@@ -1,4 +1,4 @@
-package no.hvl.dat108.f11;
+package com.DAT108_Oblig4_Del1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
