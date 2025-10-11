@@ -12,7 +12,7 @@
 		<img src="${k.bilde}" style="max-width: 200px; height: auto;">
 		<p>King in ${aarstallFraSok}, <br>
 			 was king from ${k.kongeFraAar} to ${k.kongeTilAar}, <br>
-			 born ${k.fodtAar}</p>
+			 born ${k.fodtAar}.</p>
 		
 		<a href="kongesok">Back to search</a>
 	</body>

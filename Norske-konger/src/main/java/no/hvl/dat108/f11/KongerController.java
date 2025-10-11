@@ -18,7 +18,7 @@ public class KongerController {
 	}
 	
 	@GetMapping("/finnKonge")
-	public String finnKonge(Model model, @RequestParam("aarstall") String aarstall) {
+	public String finnKonge(Model model, String aarstall) {
 		
 		int aar = Integer.parseInt(aarstall);
 		
