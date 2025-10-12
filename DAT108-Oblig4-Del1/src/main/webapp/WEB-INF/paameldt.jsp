@@ -10,7 +10,7 @@
 	<h2>Påmeldingsbekreftelse</h2>
 	<p>Påmeldingen er mottatt for</p>
 	<p>
-		&nbsp;&nbsp;&nbsp;Arne<br />
+		&nbsp;&nbsp;&nbsp;Arne<br /> <!-- &nbsp; "non-breaking space" lager mellomrom betyr -->
 		&nbsp;&nbsp;&nbsp;Arnesen<br />
 		&nbsp;&nbsp;&nbsp;90123456<br /> &nbsp;&nbsp;&nbsp;mann
 	</p>
