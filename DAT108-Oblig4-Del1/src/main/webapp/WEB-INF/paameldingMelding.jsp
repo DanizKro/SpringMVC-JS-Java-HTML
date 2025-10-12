@@ -9,7 +9,8 @@
 
 <body>
 	<h2>Påmelding</h2>
-	<p id="feilmelding" style="color:red; display:none;">Påmeldingsdetaljer er ugyldige</p>
+	<p id="feilmelding" style="color:red; display:none;">Påmeldingsdetaljer er ugyldige!</p>
+	<p id="delagerFinnes" style="color:red; display:none ">Deltager finnes allerede!</p>
 	
 
 	<!-- Jeg har fjernet alt som har med form og input å gjøre,
@@ -18,20 +19,35 @@
 	-->
 	
 	<form action="/Paamelding" method="get">
-		<label for="navn">Fornavn</label> 
-		<input type="text" id="fornavn"> <!-- kan bruke name="navn" for å ha klikkbar tekst-->
 		
-		<label for= "etternavn">Etternavn</lable> <br>
-		<input type="text" id="etternavn" name="etternavn">
 		
-		<label for="mobil">Mobil</label>
-		<input type="text" id="mobil" navn="mobil">
+		<label for="navn">Fornavn</label>  <!-- kan bruke name="navn" for å ha klikkbar tekst -->
+		<input type="text" id="fornavn" name="navn"
+				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ\- ]{1,19}"
+				title="Fornavnet må starte med stor bokstav og kan inneholde bokstaver, 
+				bindestrek og mellomrom. (2–20 tegn)"
+				required> 
+		
+		<label for= "etternavn">Etternavn</label> <br>
+		<input type="text" id="etternavn" name="etternavn" 
+				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ\-]{1,19}"
+				title="Første tegn skal være en stor bokstav. 2-20 tegn og kan inneholde bokstaver (inkl. æøåÆØÅ) og
+				bindestrek (IKKE mellomrom)."
+				required>
+		
+		<label for="mobil">Mobil(8 siffer)</label>
+		<input type="text" id="mobil" name="mobil" 
+				pattern="[0-9]{8}"
+				required>
 		
 		<label for="passord">Passord:</label>
-		<input type="password" id="passord" name="passord">
+		<input type="password" id="passord" name="passord" 
+				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ0-9\-]{6,20}"
+				required>
 		
 		<label for="passordRep">Passord repetert</label>
-		<input type="password" id="passordRep" name="passordRep"> <br>
+		<input type="password" id="passordRep" name="passordRep" required> <br>
+		
 		<button type="button" onclick="togglePassword()">Vis / Skjul</button>
 		
 		<label>
@@ -44,7 +60,9 @@
 			Kvinne
 		</label>
 		
-		<button id="meldMegPaa">Meld meg på!</button>
+		<button id="meldMegPaa">Meld meg på!</button> <!-- Må bruke form.submit() i javaMetoden-->
+		<!-- <input type="submit" id="meldMegPaa"> kan bruke denne som redirecter til
+		action="/valgtNettside" -->
 
 		
 	</form>
