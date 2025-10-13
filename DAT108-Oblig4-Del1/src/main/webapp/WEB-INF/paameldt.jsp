@@ -10,10 +10,10 @@
 	<h2>Påmeldingsbekreftelse</h2>
 	<p>Påmeldingen er mottatt for</p>
 	<p>
-		&nbsp;&nbsp;&nbsp;${d.navn}<br/> <!-- &nbsp; "non-breaking space" lager mellomrom betyr -->
-		&nbsp;&nbsp;&nbsp;{d.etternavn}<br/>
-		&nbsp;&nbsp;&nbsp;{d.mobil}<br/> 
-		&nbsp;&nbsp;&nbsp;{d.kjonn}
+		&nbsp;&nbsp;&nbsp;${d.fornavn}<br/> <!-- &nbsp; "non-breaking space" lager mellomrom betyr -->
+		&nbsp;&nbsp;&nbsp;${d.etternavn}<br/>
+		&nbsp;&nbsp;&nbsp;${d.mobil}<br/> 
+		&nbsp;&nbsp;&nbsp;${d.kjonn}
 	</p>
 	<a href="deltagerliste">Gå til deltagerlisten</a>
 </body>

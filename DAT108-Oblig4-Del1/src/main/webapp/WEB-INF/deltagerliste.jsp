@@ -38,5 +38,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<a href="paamelding">Ny påmelding</a>
 </body>
 </html>
