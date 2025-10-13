@@ -43,12 +43,14 @@
 				required>
 		<!-- Lage en ny metode utenfor form for å ikke bruke GET på passord? bruke POST?-->
 		<label for="passord">Passord:</label>
-		<input type="password" name="passord" 
+		<input id="pw1" type="password" name="passord" 
 				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ0-9\-]{6,20}"
 				required>
 		
 		<label for="passordRep">Passord repetert</label>
-		<input type="password" name="passordRep" required> <br>
+		<input id="pw2" type="password" name="passordRep"
+				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ0-9\-]{6,20}"
+				required> <br>
 		
 		<button type="button" onclick="togglePassword()">Vis / Skjul</button>
 		
@@ -71,8 +73,8 @@
 	
 	<script>
 			function togglePassword() {
-			  const input = document.getElementById("passord");
-			  const input2 = document.getElementById("passordRep");
+			  const input = document.getElementById("pw1");
+			  const input2 = document.getElementById("pw2");
 			  
 			  if (input.type === "password" && input2.type === "password") { //Egen innebygget Type i HTML,
 			    input.type = "text";										 //input.type = "password" gir stjerner i innput felt
@@ -82,6 +84,6 @@
 				input2.type = "password";
 			  }
 			}
-			</script>
+	</script>
 </body>
 </html>

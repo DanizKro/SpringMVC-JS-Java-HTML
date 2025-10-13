@@ -25,7 +25,7 @@ public class PaameldingController {
 	
 	@GetMapping("/paamelding")
 	public String visPaameldingSkjema() {
-		return "paamelding";
+		return "paameldingMelding";
 	}
 	
 	//Må bruke postMapping fordi at det ikke skal skrives data i nettadressen(mer sikker)
