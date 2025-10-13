@@ -45,6 +45,7 @@ public class PaameldingController {
 	    if (passord != null && passord.equals(passordRep)) {
 	        Deltager d1 = new Deltager(fornavn, etternavn, mobil, passord, kjonn);
 	        DeltagerData.data.add(d1);
+	        DeltagerData.data.sort((a,b)-> a.getFornavn().compareTo(b.getFornavn()));
 	        model.addAttribute("d", d1);
 	        return "paameldt";
 	    } else { // Passordene samsvarer ikke
