@@ -8,7 +8,8 @@ public class Deltager {
 	private String etternavn;
 	private String kjonn;
 	
-	public Deltager(String mobil, String passord, String fornavn, String etternavn, String kjonn) {
+	public Deltager(String fornavn, String etternavn, 
+			String mobil,String passord, String kjonn) {
 		super();
 		this.mobil = mobil;
 		this.passord = passord;

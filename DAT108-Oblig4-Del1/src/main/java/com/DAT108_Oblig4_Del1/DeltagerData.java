@@ -10,11 +10,11 @@ public class DeltagerData {
 	static {
 		data = new ArrayList<>();
 		
-		data.add(new Deltager("12345678", "passord123", "Anne", "Panne", "Mann"));
-		data.add(new Deltager("13462345", "1pass2ord3", "Ulf", "Kjos", "Mann"));
-		data.add(new Deltager("12345678", "12passord", "Lars-Petter", "Helland", "Mann"));
-		data.add(new Deltager("12345678", "Pass23ord", "Kristine", "Frekkhaug", "Kvinne"));
-		data.add(new Deltager("12345678", "2Pass3ord", "Arvid", "Garvik", "Mann"));
+		data.add(new Deltager("Anne", "Panne","12345678","passord123", "Mann"));
+		data.add(new Deltager("Ulf", "Kjos","13462345", "1pass2ord3", "Mann"));
+		data.add(new Deltager("Lars-Petter", "Helland","12345678", "12passord", "Mann"));
+		data.add(new Deltager("Kristine", "Frekkhaug", "12345678", "Pass23ord","Kvinne"));
+		data.add(new Deltager( "Arvid", "Garvik","12345678","2Pass3ord","Mann"));
 	}
 	
 	
