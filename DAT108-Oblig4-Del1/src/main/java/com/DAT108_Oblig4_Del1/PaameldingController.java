@@ -41,11 +41,19 @@ public class PaameldingController {
 	        return "paameldingMelding";
 	    }
 	    
-	    // Hvis mobil ikke finnes og passordene er like
+	    // Hvis mobil ikke finnes og passordene er like opprettes deltager
 	    if (passord != null && passord.equals(passordRep)) {
 	        Deltager d1 = new Deltager(fornavn, etternavn, mobil, passord, kjonn);
 	        DeltagerData.data.add(d1);
-	        DeltagerData.data.sort((a,b)-> a.getFornavn().compareTo(b.getFornavn()));
+	        DeltagerData.data.sort((a,b)-> {
+	        	//sorterer på fornavn
+	        	int compFornavn = a.getFornavn().compareTo(b.getFornavn());
+	        	//hvis fornavn er like, sorteres de på etternavn
+	        	if(compFornavn == 0) {
+	        		return a.getEtternavn().compareToIgnoreCase(b.getEtternavn());
+	        	}
+	        	return compFornavn;
+	        });
 	        model.addAttribute("d", d1);
 	        return "paameldt";
 	    } else { // Passordene samsvarer ikke

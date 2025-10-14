@@ -15,6 +15,7 @@ public class DeltagerData {
 		data.add(new Deltager("Lars-Petter", "Helland","12345678", "12passord", "Mann"));
 		data.add(new Deltager("Kristine", "Frekkhaug", "12345678", "Pass23ord","Kvinne"));
 		data.add(new Deltager( "Arvid", "Garvik","12345678","2Pass3ord","Mann"));
+		data.add(new Deltager( "Arvid", "Aasen","12772678","2Poss3ord","Mann"));
 	}
 	
 	

@@ -14,11 +14,6 @@
 	<p id="deltagerFinnes" style="color:red; display:${finnes != null ? 'block':'none'}">
 	    ${finnes}
 	</p>
-
-	<!-- Jeg har fjernet alt som har med form og input å gjøre,
-		 siden dette er pensum. Her får dere sette opp skjemaet
-		 selv. Lykke til.
-	-->
 	
 	<form action="/paamelding" method="post">
 		<fieldset> <!-- fieldset og legend er pynte ramme rundt-->
@@ -58,8 +53,9 @@
 		
 		<button type="button" onclick="togglePassword()">Vis / Skjul</button>
 		
+		<!-- lurt å ha en radio-knapp checked fra start, slik at det ikke blir Null ved glem-->
 		<label>
-			<input type="radio" name="kjonn" value="Mann" required>
+			<input type="radio" name="kjonn" value="Mann" checked required>
 			Mann
 		</label>
 		
