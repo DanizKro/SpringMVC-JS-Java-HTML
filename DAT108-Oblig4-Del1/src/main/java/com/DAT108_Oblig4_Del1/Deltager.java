@@ -27,6 +27,10 @@ public class Deltager {
 	
 	private String kjonn;
 	
+	public Deltager() {
+		
+	}
+	
 	public Deltager(String fornavn, String etternavn, 
 			String mobil,String passord, String kjonn) {
 		super();
