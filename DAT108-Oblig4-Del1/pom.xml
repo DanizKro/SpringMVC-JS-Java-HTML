@@ -45,6 +45,11 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>no.hvl.dat108</groupId>
+			<artifactId>f18b-validere-person-fyllinn</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

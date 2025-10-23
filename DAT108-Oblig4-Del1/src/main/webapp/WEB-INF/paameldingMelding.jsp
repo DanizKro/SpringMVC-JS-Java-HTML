@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="no">
 <head>
 	<link href="css/simple.css" rel="stylesheet" type="text/css" />
-<!-- <script src="js/myscript.js" defer></script>  -->  
 	<title>Påmelding</title>
 </head>
 
@@ -15,15 +15,24 @@
 	    ${finnes}
 	</p>
 	
+	<!-- Printer ut feilmeldinger fra Validering i Javakoden om det er noen-->
+	<c:if test="${not empty feilmeldinger}">
+		<c:forEach var="melding" items="${feilmeldinger}">
+			<p style="color:red;">${melding}</p>
+		</c:forEach>
+	</c:if>
+		
+	
 	<form action="/paamelding" method="post">
 		<fieldset> <!-- fieldset og legend er pynte ramme rundt-->
 		
 		<label for="fornavn">Fornavn</label>  <!-- kan bruke name="fornavn" for å ha klikkbar tekst -->
-		<input type="text" name="fornavn"
-				pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ\- ]{1,19}"
+		<input type="text" name="fornavn">
+<!--			pattern="[A-ZÆØÅ][a-zA-ZæøåÆØÅ\- ]{1,19}"
 				title="Fornavnet må starte med stor bokstav og kan inneholde bokstaver, 
 				bindestrek og mellomrom. (2–20 tegn)"
-				required> 
+				required>
+-->
 		
 		<label for= "etternavn">Etternavn</label>
 		<input type="text" name="etternavn" 
@@ -65,8 +74,6 @@
 		</label>
 		
 		<button id="meldMegPaa">Meld meg på!</button> <!-- Må bruke form.submit() i et eget script med EventListner -->
-		<!-- <input type="submit" Value="Meld meg på!" id="meldMegPaa"> kan bruke denne som redirecter til
-		action="/valgtNettside" -->
 
 		</fieldset>
 	</form>
