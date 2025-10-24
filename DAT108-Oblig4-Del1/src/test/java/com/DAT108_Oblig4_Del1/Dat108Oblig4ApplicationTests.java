@@ -38,7 +38,12 @@ class Dat108Oblig4ApplicationTests {
 	void harFornavnStorBokstav() {
 		testPerson.setFornavn("henrik");
 		sjekkFeilmelding("Fornavnet må starte med stor bokstav og kan inneholde bokstaver, bindestrek og mellomrom. (2–20 tegn)");
-		
+	}
+	
+	@Test
+	void fornavnIkkeNull() {
+		testPerson.setFornavn(null);
+		sjekkFeilmelding("Fornavn må fylles ut");
 	}
 	
 	@Test
@@ -48,17 +53,18 @@ class Dat108Oblig4ApplicationTests {
 	}
 	
 	@Test
-	void etternavnIkkeFyltUt() {
+	void etternavnIkkeNull() {
 		testPerson.setEtternavn(null);
 		sjekkFeilmelding("Etternavn må fylles ut");
 	}
 	
 	@Test
-	void etternavnIngenFeilmelding() {
+	void etternavnIngenFeilmeldingBindestrek() {
 		testPerson.setEtternavn("Ibsen-Ole");
 		Set<ConstraintViolation<Deltager>> violations = validator.validate(testPerson);
 		assertTrue(violations.isEmpty());
 	}
+	
 	
 	//hjelpemetode for å sjekke spesifike tilbakemeldinger 
 	private void sjekkFeilmelding(String feilmelding) {
