@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>no.hvl.dat108</groupId>
-	<artifactId>oppgave-norske-konger</artifactId>
+	<artifactId>DAT108-Oblig4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
