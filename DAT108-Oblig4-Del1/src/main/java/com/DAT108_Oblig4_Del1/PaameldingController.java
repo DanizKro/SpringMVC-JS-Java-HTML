@@ -19,9 +19,10 @@ public class PaameldingController {
 
 	@GetMapping("/paameldt")
 	public String paameldt(HttpSession session, Model model) {
-		
 		Deltager deltager = (Deltager) session.getAttribute("deltager");
+		
 		model.addAttribute("d", deltager);
+
 		return "paameldt";
 	}
 
@@ -29,40 +30,46 @@ public class PaameldingController {
 	public String deltagerliste(Model model) {
 
 		model.addAttribute("deltagere", DeltagerData.data);
-
 		return "deltagerliste";
 	}
 
 	@GetMapping("/paamelding")
-	public String visPaameldingSkjema() {
+	public String visPaameldingSkjema(Model model) {
 		return "paameldingMelding";
 	}
 
 	// Må bruke postMapping fordi at det ikke skal skrives data i nettadressen(mer
 	// sikker)
 	@PostMapping("/paamelding")
-	public String paameldingMedMelding(@Valid Deltager deltager, BindingResult bindingResult,
-			Model model, HttpSession session, String passordRep) {
+	public String paameldingMedMelding(@Valid Deltager deltager, 
+			BindingResult bindingResult,
+			Model model, 
+			HttpSession session,
+			RedirectAttributes ra, 
+			String passordRep) {
 		
 		//Sjekker om det er veliderings-feil
 		if(bindingResult.hasErrors()) {
 			List<String> feilmeldinger = bindingResult.getAllErrors().stream()
 					.map(e -> e.getDefaultMessage()).toList();
-			model.addAttribute("feilmeldinger", feilmeldinger);
-			return "paameldingMelding";
+			ra.addFlashAttribute("feilmeldinger", feilmeldinger);
+			//ra.addFlashAttribute("deltager", deltager);
+			return "redirect:paamelding";
 		}
 
 		// Sjekker om deltager finnes ved å sjekke om det finnes en deltager med samme mobilnummer
 		boolean finnes = DeltagerData.data.stream().anyMatch(d -> d.getMobil().equals(deltager.getMobil()));
 		if (finnes) {
-			model.addAttribute("finnes", "Deltager finnes fra før av!");
-			return "paameldingMelding";
+			ra.addFlashAttribute("finnes", "Deltager finnes fra før av!");
+			//ra.addFlashAttribute("deltager", deltager);
+			return "redirect:/paamelding";
 		}
 
 		//sjekker passord om det stemmer med inntastet og ny bruker
 		if (!deltager.getPassord().equals(passordRep)) {
-			model.addAttribute("passord", "Passord samsvarer ikke");
-			return "paameldingMelding";
+			ra.addFlashAttribute("passord", "Passord samsvarer ikke");
+			//ra.addFlashAttribute("deltager", deltager);
+			return "redirect:/paamelding";
 		}
 		
 		//Hvis alt ok, legger til deltager og sorterer på fornavn, deretter etternavn
