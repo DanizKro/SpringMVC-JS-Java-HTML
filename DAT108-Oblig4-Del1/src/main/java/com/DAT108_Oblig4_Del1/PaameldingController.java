@@ -19,8 +19,8 @@ public class PaameldingController {
 
 	@GetMapping("/paameldt")
 	public String paameldt(HttpSession session, Model model) {
-		Deltager deltager = (Deltager) session.getAttribute("deltager");
 		
+		Deltager deltager = (Deltager) session.getAttribute("d");
 		model.addAttribute("d", deltager);
 
 		return "paameldt";
@@ -34,7 +34,7 @@ public class PaameldingController {
 	}
 
 	@GetMapping("/paamelding")
-	public String visPaameldingSkjema(Model model) {
+	public String visPaameldingSkjema() {
 		return "paameldingMelding";
 	}
 
@@ -42,8 +42,7 @@ public class PaameldingController {
 	// sikker)
 	@PostMapping("/paamelding")
 	public String paameldingMedMelding(@Valid Deltager deltager, 
-			BindingResult bindingResult,
-			Model model, 
+			BindingResult bindingResult, 
 			HttpSession session,
 			RedirectAttributes ra, 
 			String passordRep) {

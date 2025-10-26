@@ -32,6 +32,7 @@
 				title="Fornavnet må starte med stor bokstav og kan inneholde bokstaver, 
 				bindestrek og mellomrom. (2–20 tegn)"
 				required>
+				Sjekket denne med Java-validering i stedet
 -->
 		
 		<label for= "etternavn">Etternavn</label>

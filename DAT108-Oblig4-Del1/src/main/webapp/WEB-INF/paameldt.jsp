@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Påmeldingsbekreftelse</h2>
-	<p>Påmeldingen er mottatt for</p>
+	<p>Påmeldingen er mottatt for:</p>
 	<p>
 		&nbsp;&nbsp;&nbsp;${d.fornavn}<br/> <!-- &nbsp; "non-breaking space" lager mellomrom betyr -->
 		&nbsp;&nbsp;&nbsp;${d.etternavn}<br/>
