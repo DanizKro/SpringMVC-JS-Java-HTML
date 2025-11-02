@@ -1,4 +1,4 @@
-package no.hvl.dat108.obl4.service;
+package com.DAT108_Oblig4_Del2;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

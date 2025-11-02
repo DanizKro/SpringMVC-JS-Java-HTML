@@ -17,6 +17,8 @@
 				}
 			}
 		</script>
+	
+	<p>Innlogget som: ${d.mobil}/${d.fornavn} ${d.etternavn}</p>
 		
 	<h2>Deltagerliste</h2>
 	<table>
@@ -26,19 +28,21 @@
 			<th align="left">Mobil</th>
 		</tr>
 
-		<c:forEach var="d" items="${deltagere}">
-			<tr>
+		<c:forEach var="e" items="${deltagere}">
+			<tr ${e.mobil == d.mobil ? 'class="highlight"' : ''}>
 				<td align="center">
 					<script>
-						document.write(kjonn("${d.kjonn}"));
+						document.write(kjonn("${e.kjonn}"));
 					</script>
 				</td>
-				<td>${d.fornavn} ${d.etternavn}</td>
-				<td>${d.mobil}</td>
+				<td>${e.fornavn} ${e.etternavn}</td>
+				<td>${e.mobil}</td>
 			</tr>
 		</c:forEach>
 	</table>
 	
-	<a href="paamelding">Ny påmelding</a>
+	<form action="/logut"method="get">
+		<button>Logg ut</button>
+	</form>
 </body>
 </html>

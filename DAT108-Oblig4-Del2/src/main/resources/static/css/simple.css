@@ -49,6 +49,11 @@
   }
 }
 
+.highlight {
+  background-color: lightgreen  !important;
+  color:black					!important;
+}
+
 /* Reset box-sizing */
 *, *::before, *::after {
   box-sizing: border-box;

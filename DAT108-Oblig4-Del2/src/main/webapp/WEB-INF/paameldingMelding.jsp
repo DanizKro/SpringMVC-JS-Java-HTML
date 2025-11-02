@@ -50,7 +50,7 @@
 				
 	<!--type="password" gir stjerner i innput felt, egen funksjon som bytter mellom type="text" og type="password"-->
 		<label for="passord">Passord:</label>
-		<input id="pw1" type="password" name="passord" 
+		<input id="pw1" type="password" name="plainPassord" 
 				pattern="[a-zA-ZæøåÆØÅ0-9]{6,20}"
 				title="Passord kan bestå av stor bokstav eller tall, lengde 6-20 symboler."
 				required>
@@ -74,7 +74,7 @@
 			Kvinne
 		</label>
 		
-		<button id="meldMegPaa">Meld meg på!</button> <!-- Må bruke form.submit() i et eget script med EventListner -->
+		<button id="meldMegPaa" type="button">Meld meg på!</button> <!-- Må bruke form.submit() i et eget script med EventListner -->
 
 		</fieldset>
 	</form>
@@ -100,11 +100,11 @@
 			    form.submit();
 			  } else {
 			    form.reportValidity();
-			  }
-			});
+		  	}
+		});
 			
 	</script>
 	
-	<a href="deltagerliste">Se deltagerlisten</a>
+	<a href="innlogging">Se deltagerlisten</a>
 </body>
 </html>

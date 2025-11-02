@@ -33,7 +33,7 @@ class Dat108Oblig4ApplicationTests {
 		testPerson.setEtternavn("Ibsen");
 		testPerson.setKjonn("Mann");
 		testPerson.setMobil("12345678");
-		testPerson.setPassord("Hemmelig123");
+		testPerson.setPlainPassord("Hemmelig123");
 	}
 
 	@Test
