@@ -105,12 +105,11 @@ public class PaameldingController {
 					.map(e -> e.getDefaultMessage()).toList();
 			ra.addFlashAttribute("feilmeldinger", feilmeldinger);
 			//ra.addFlashAttribute("deltager", deltager);
-			return "redirect:paamelding";
+			return "redirect:/paamelding";
 		}
 
 		// Sjekker om deltager finnes ved å sjekke om det finnes en deltager med samme mobilnummer
 		Deltager finnes = deltagerRepo.findByMobil(deltager.getMobil());
-		
 		if (finnes != null) {
 			ra.addFlashAttribute("finnes", "Deltager finnes fra før av!");
 			//ra.addFlashAttribute("deltager", deltager);
@@ -135,7 +134,7 @@ public class PaameldingController {
 		deltager.setPlainPassord(null);
 
 	    session.setAttribute("d", deltager);
-	    return "redirect:paameldt";
+	    return "redirect:/paameldt";
 	    
 	}
 	

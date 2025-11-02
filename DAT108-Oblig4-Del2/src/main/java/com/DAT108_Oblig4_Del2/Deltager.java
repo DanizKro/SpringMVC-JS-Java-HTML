@@ -17,6 +17,7 @@ public class Deltager {
 	@NotNull(message = "Mobil må fylles ut")
 	private String mobil;
 
+	//Noe feil med annoteringen @NotNull, Spring får feilmelding selv om dataen er med, vet ikke hvorfor det skjer..
 	@Transient
 	@Pattern(regexp = "[a-zA-ZæøåÆØÅ0-9]{6,20}", message = "Passord kan bestå av stor bokstav eller tall, lengde 6-20 symboler")
 //	@NotNull(message = "Passord må fylles ut")
