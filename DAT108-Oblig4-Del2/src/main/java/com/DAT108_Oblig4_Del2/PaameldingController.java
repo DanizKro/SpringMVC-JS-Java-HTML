@@ -14,10 +14,16 @@ import org.springframework.validation.BindingResult;
 @Controller
 public class PaameldingController {
 	
-	@Autowired
+//	@Autowired
 	private DeltagerRepo deltagerRepo;
-	@Autowired
+//	@Autowired
 	private PassordService passordService;
+	
+	//kan bruke en kontrukstør for å gjøre injection av klasser slik:
+	public PaameldingController(DeltagerRepo deltagerRepo,PassordService passordService) {
+		this.deltagerRepo = deltagerRepo;
+		this.passordService = passordService;
+	}
 	
 	@GetMapping("/logut")
 	public String logUt(HttpSession session, RedirectAttributes ra) {
