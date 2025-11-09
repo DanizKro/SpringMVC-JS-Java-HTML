@@ -42,7 +42,7 @@ public class Deltager {
 	public Deltager(String fornavn, String etternavn, String mobil, String passord, String kjonn) {
 		super();
 		this.mobil = mobil;
-		this.hash = passord;
+		this.plainPassord = passord;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
 		this.kjonn = kjonn;

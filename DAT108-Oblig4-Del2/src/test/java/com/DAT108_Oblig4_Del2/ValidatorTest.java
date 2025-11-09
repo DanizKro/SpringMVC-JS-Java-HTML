@@ -17,8 +17,7 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 
-@SpringBootTest
-class Dat108Oblig4ApplicationTests {
+class ValidatorTest {
 
 	private Validator validator;
 

@@ -18,6 +18,8 @@ public class PaameldingController {
 	private DeltagerRepo deltagerRepo;
 //	@Autowired
 	private PassordService passordService;
+	@Autowired
+	private LoggInService loggInService;
 	
 	//kan bruke en kontrukstør for å gjøre injection av klasser slik:
 	public PaameldingController(DeltagerRepo deltagerRepo,PassordService passordService) {
@@ -27,11 +29,7 @@ public class PaameldingController {
 	
 	@GetMapping("/logut")
 	public String logUt(HttpSession session, RedirectAttributes ra) {
-		if(session != null) {
-			session.invalidate();
-		}
-		ra.addFlashAttribute("melding", "Du er logget ut");
-		return "redirect:/innlogging";
+		return loggInService.loggUt(session, ra);
 	}
 	
 	@GetMapping("/innlogging")
@@ -41,22 +39,7 @@ public class PaameldingController {
 	
 	@PostMapping("/innlogging")
 	public String innlogging(HttpSession session, RedirectAttributes ra, String mobil, String plainPassord) {
-		
-		Deltager bruker = deltagerRepo.findByMobil(mobil);
-		
-		if(bruker == null) {
-			ra.addFlashAttribute("melding", "Bruker finnes ikke");
-			return"redirect:/innlogging";
-		}
-		boolean passordSjekk = passordService.erKorrektPassord(plainPassord, bruker.getSalt(), bruker.getHash());
-		
-		if(!passordSjekk) {
-			ra.addFlashAttribute("melding", "Ugyldig passord");
-			return "redirect:/innlogging";
-		}
-		session.setAttribute("d", bruker);
-		
-		return "redirect:/deltagerliste";
+		return loggInService.LoggInn(session, ra, mobil, plainPassord);
 	}
 	
 	@GetMapping("/paameldt")
