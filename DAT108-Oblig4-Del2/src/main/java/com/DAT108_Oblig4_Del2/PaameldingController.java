@@ -21,7 +21,7 @@ public class PaameldingController {
 	@Autowired
 	private LoggInService loggInService;
 	
-	//kan bruke en kontrukstør for å gjøre injection av klasser slik:
+	//kan bruke en kontrukstør for å gjøre injection av klasser slik, i stedet for @Autowired:
 	public PaameldingController(DeltagerRepo deltagerRepo,PassordService passordService) {
 		this.deltagerRepo = deltagerRepo;
 		this.passordService = passordService;
@@ -49,7 +49,7 @@ public class PaameldingController {
 		return "paameldt";
 	}
 
-	
+	//Kan lage en egen Hjelpemetoder i en klasse f.eks DeltagerService
 	@GetMapping("/deltagerliste")
 	public String deltagerliste(HttpSession session, Model model, RedirectAttributes ra) {
 		//Sjekker om man har logget inn for å lese deltagerlisten
@@ -81,6 +81,7 @@ public class PaameldingController {
 
 	// Må bruke postMapping fordi at det ikke skal skrives data i nettadressen(mer
 	// sikker)
+	//Kan lage en egen Hjelpemetoder i en klasse f.eks DeltagerService
 	@PostMapping("/paamelding")
 	public String paameldingMedMelding(@Valid Deltager deltager, 
 			BindingResult bindingResult, 
