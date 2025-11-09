@@ -2,6 +2,8 @@ package com.DAT108_Oblig4_Del2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -57,5 +59,21 @@ public class ControllerTest {
 		assertEquals("redirect:/paameldt", resultat); //Metoden skal returnere en String som går til paameldt
 		
 		
+	}
+	
+	@Test
+	void hvisDeltagerFinnes() {
+		
+		Deltager deltager = new Deltager("Daniel","Kron", "12345678", "passord", "mann");
+		
+		when(bindingResult.hasErrors()).thenReturn(false);
+		when(deltagerRepo.findByMobil("12345678")).thenReturn(deltager);
+		
+		String resultat = controller.paameldingMedMelding(deltager, bindingResult, session, ra, "passord");
+		
+		verify(ra).addFlashAttribute("finnes", "Deltager finnes fra før av!");
+		verify(deltagerRepo, never()).save(deltager); //never() -> verifiser at metoden deltagerRepo.save(deltager) ikke skjer
+		verify(session, never()).setAttribute("d", deltager);
+		assertEquals("redirect:/paamelding", resultat);
 	}
 }
