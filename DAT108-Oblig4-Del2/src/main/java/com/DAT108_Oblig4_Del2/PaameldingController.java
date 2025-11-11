@@ -81,7 +81,7 @@ public class PaameldingController {
 
 	// Må bruke postMapping fordi at det ikke skal skrives data i nettadressen(mer
 	// sikker)
-	//Kan lage en egen Hjelpemetoder i en klasse f.eks DeltagerService
+	//Kunnet laget Hjelpemetoder i en klasse f.eks DeltagerService, med egen lagPassord(),deltagerFinnes() f.eks.
 	@PostMapping("/paamelding")
 	public String paameldingMedMelding(@Valid Deltager deltager, 
 			BindingResult bindingResult, 
@@ -98,7 +98,7 @@ public class PaameldingController {
 			return "redirect:/paamelding";
 		}
 
-		// Sjekker om deltager finnes ved å sjekke om det finnes en deltager med samme mobilnummer
+		//Sjekker om deltager finnes ved å sjekke om det finnes en deltager med samme mobilnummer
 		Deltager finnes = deltagerRepo.findByMobil(deltager.getMobil());
 		if (finnes != null) {
 			ra.addFlashAttribute("finnes", "Deltager finnes fra før av!");
@@ -113,7 +113,7 @@ public class PaameldingController {
 			return "redirect:/paamelding";
 		}
 		
-		//Lagrer passord sikkert
+		//Lager og lagrer passord sikkert
 		String salt = passordService.genererTilfeldigSalt();
 		String hash = passordService.hashMedSalt(deltager.getPlainPassord(), salt);
 		deltager.setHash(hash);
