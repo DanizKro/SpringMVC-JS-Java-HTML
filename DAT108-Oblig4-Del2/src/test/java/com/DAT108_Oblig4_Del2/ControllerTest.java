@@ -36,7 +36,7 @@ public class ControllerTest {
 	PassordService passordService;
 	
 	@InjectMocks
-	private PaameldingController controller;
+	private PaameldingController controller;	//Dette er metoden vi skal teste, så den må injeseres, ikke fakes med Mock
 	
 	@Test
 	void nyDeltagerRegistrering() {
@@ -52,7 +52,7 @@ public class ControllerTest {
 		//Lager et kall til metoden vi skal teste -> som returnerer en String med resultat
 		String resultat = controller.paameldingMedMelding(deltager,bindingResult,session,ra,passordRep);
 		
-		//Asserts
+		//Asserts									  //Kunne delt metoden opp å hjelpeklasser, for mer nøye testing
 		verify(deltagerRepo).save(deltager);		  //Metoden skal lagre deltager i deltagerRepo
 		verify(session).setAttribute("d", deltager);  //Metoden skal sette deltager til session med attributt "d"
 		assertNull(deltager.getPlainPassord());		  //Metoden skal slette plainPassord
@@ -69,8 +69,10 @@ public class ControllerTest {
 		when(bindingResult.hasErrors()).thenReturn(false);
 		when(deltagerRepo.findByMobil("12345678")).thenReturn(deltager);
 		
+		//test av metoden
 		String resultat = controller.paameldingMedMelding(deltager, bindingResult, session, ra, "passord");
 		
+		//Assert
 		verify(ra).addFlashAttribute("finnes", "Deltager finnes fra før av!");
 		verify(deltagerRepo, never()).save(deltager); //never() -> verifiser at metoden deltagerRepo.save(deltager) ikke skjer
 		verify(session, never()).setAttribute("d", deltager);
