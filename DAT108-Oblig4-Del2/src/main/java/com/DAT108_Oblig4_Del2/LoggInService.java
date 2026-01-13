@@ -15,12 +15,11 @@ public class LoggInService {
 	private PassordService passordService;
 	
 
-	public String loggUt(HttpSession session, RedirectAttributes ra) {
+	public void loggUt(HttpSession session, RedirectAttributes ra) {
 		if(session.getAttribute("d") != null) { //litt usikker på denne
 			session.invalidate();
 		}
 		ra.addFlashAttribute("melding", "Du er logget ut");
-		return "redirect:/innlogging";
 	}
 
 	public String LoggInn(HttpSession session, RedirectAttributes ra, String mobil, String plainPassord) {

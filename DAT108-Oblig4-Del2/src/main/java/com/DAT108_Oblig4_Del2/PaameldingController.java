@@ -29,7 +29,8 @@ public class PaameldingController {
 	
 	@GetMapping("/logut")
 	public String logUt(HttpSession session, RedirectAttributes ra) {
-		return loggInService.loggUt(session, ra);
+		loggInService.loggUt(session, ra);
+		return "redirect:/innlogging";
 	}
 	
 	@GetMapping("/innlogging")
