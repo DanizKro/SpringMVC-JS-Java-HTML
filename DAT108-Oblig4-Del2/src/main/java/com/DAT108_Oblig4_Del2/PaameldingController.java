@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 
 @Controller
 public class PaameldingController {
+
+	//Adresse http://localhost:8080/innlogging
 	
 //	@Autowired
 	private DeltagerRepo deltagerRepo;
